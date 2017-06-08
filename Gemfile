@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem "shrine"
+gem "shrine-url"
 gem "sequel"
 gem "sinatra"
 gem "pry"

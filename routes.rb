@@ -13,7 +13,6 @@ get '/' do
 end
 
 post '/photos' do
-  binding.pry
   Photo.create(params[:photo])
   redirect '/photos'
 end
