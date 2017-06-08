@@ -1,0 +1,12 @@
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Image</th>
+  </tr>
+  <% @photos.each do |photo| %>
+    <tr>
+      <td><%= photo.id %></td>
+      <td><img src="<%= photo.image_url %>"/></td>
+    </tr>
+  <% end %>
+</table>

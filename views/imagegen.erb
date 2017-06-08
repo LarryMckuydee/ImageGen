@@ -1,0 +1,41 @@
+<html>
+<head>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.7.11/fabric.min.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<h1>HELLO JIB</h1>
+<canvas width="500" height="500" id="front">
+</canvas>
+<form action="/photos" method="post" enctype="multipart/form-data">
+  <input name="photo[image]" type="hidden" value="<%= @photo.cached_image_data%>">
+  <input name="photo[image]" type="file">
+  <input type="submit" value="Submit">
+</form>
+<script>
+ (function(){
+  var canvas = new fabric.Canvas('front');
+  var rect = new fabric.Rect({
+    width: 50,
+    height: 50,
+    fill: 'rgba(0,0,200,0.5)'
+  });
+  canvas.add(rect);
+  canvas.on({
+    'object:moving': onchange,
+    'object:scaling': onChange,
+    'object:rotating': onChange,
+  });
+
+  function onChange(options) {
+    options.target.setCoords();
+    canvas.forEachObject(function(obj) {
+      if (obj === options.target) return;
+      obj.setOpacity(options.target.intersectsWithObject(obj) ? 0.5 : 1);
+    });
+  }
+  canvas.renderAll();
+  window.canvas = canvas;
+ })();
+</script>
+</body>
+</html>

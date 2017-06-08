@@ -1,0 +1,38 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    coderay (1.1.1)
+    down (2.3.8)
+    image_processing (0.4.1)
+    method_source (0.8.2)
+    mini_magick (4.5.1)
+    pry (0.10.4)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    rack (1.6.5)
+    rack-protection (1.5.3)
+      rack
+    sequel (4.46.0)
+    shrine (2.5.0)
+      down (>= 2.3.6)
+    sinatra (1.4.7)
+      rack (~> 1.5)
+      rack-protection (~> 1.4)
+      tilt (>= 1.3, < 3)
+    slop (3.6.0)
+    tilt (2.0.7)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  image_processing
+  mini_magick (>= 4.3.5)
+  pry
+  sequel
+  shrine
+  sinatra
+
+BUNDLED WITH
+   1.12.5
