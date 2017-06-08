@@ -2,11 +2,13 @@
   <tr>
     <th>Id</th>
     <th>Image</th>
+    <th>Convert Image</th>
   </tr>
   <% @photos.each do |photo| %>
     <tr>
       <td><%= photo.id %></td>
       <td><img src="<%= photo.image_url %>"/></td>
+      <td><img src="<%= photo.convert_image_url %>"/></td>
     </tr>
   <% end %>
 </table>

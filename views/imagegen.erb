@@ -9,6 +9,8 @@
 <form action="/photos" method="post" enctype="multipart/form-data">
   <input name="photo[image]" type="hidden" value="<%= @photo.cached_image_data%>">
   <input name="photo[image]" type="file">
+  <input name="photo[convert_image]" type="hidden" value="<%= @photo.cached_convert_image_data%>">   
+  <input name="photo[convert_image]" type="file" id="convertImage">
   <input type="submit" value="Submit">
 </form>
 <script>
@@ -35,6 +37,14 @@
   }
   canvas.renderAll();
   window.canvas = canvas;
+
+  var form = document.getElementsByTagName('form');
+  form.onsubmit = function(){
+    var convert_image_input = document.getElementsById('convertImage'); 
+    convert_image_input.value = canvas.toDataUrl({
+                                  format: 'png'
+                                })
+  }
  })();
 </script>
 </body>
